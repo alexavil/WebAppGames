@@ -46,13 +46,31 @@
         loadQuestion(pos);
       };
 
+      function lockAnswers() {
+        var answers = document.getElementsByClassName("answer");
+        for (var i = 0; i < answers.length; i++) {
+          answers[i].disabled = true;
+        }
+      }
+
+      function unlockAnswers() {
+        var answers = document.getElementsByClassName("answer");
+        for (var i = 0; i < answers.length; i++) {
+          answers[i].disabled = false;
+        }
+      }
+
       //Load question function
       function loadQuestion(pos) {
         var image = document.getElementById("question");
         image.src = "src/many_much/images/" + pos + ".png";
+        image.onload = function () {
+          unlockAnswers();
+        };
       }
 
       function checkAnswer(answer) {
+          lockAnswers();
         var correctAnswer = db.exec(
           "select answer from answers where id = " + pos
         )[0].values[0][0];
@@ -118,7 +136,6 @@
   <body>
     <style>
       body {
-        background-size: cover;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
