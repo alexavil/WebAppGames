@@ -157,22 +157,32 @@
         background-color: blueviolet;
         color: white;
       }
-      button.answer {
-        display: block;
+      img.answer {
         margin: auto;
         align-self: center;
-        width: auto;
-        height: auto;
-        font-size: 40px;
-        font-family: "Calibri", serif;
-        text-align: center;
-        color: aliceblue;
-        background-color: red;
+        width: 50%;
+        height: 50%;
       }
+      p.title1 {
+        font-family: "Calibri", serif;
+        text-align: left;
+        margin-left: 10%;
+        margin-top: auto;
+        background-color: blueviolet;
+        color: white;
+      }
+        p.title2 {
+            font-family: "Calibri", serif;
+            text-align: right;
+            margin-right: 10%;
+            margin-top: -9%;
+            background-color: blueviolet;
+        color: white;
+        }
     </style>
     <img class="question" id="question" src=""></img>
-    <button class="answer" id="answer1" onclick="checkAnswer('many')">many</button><br>
-    <button class="answer" id="answer2" onclick="checkAnswer('much')">much</button><br>
+    <img class="answer" id="answer1" src="src/many_much/cart.png" onclick="checkAnswer('many')"></img><img class="answer" id="answer2" src="src/many_much/cart.png" onclick="checkAnswer('much')"></img>
+    <p class="title1">Many</p><p class="title2">Much</p>
     <p class="score" id="score"></p>
     <button class="answer" id="retry" onclick="retry()">Retry</button><br>
   </body>
