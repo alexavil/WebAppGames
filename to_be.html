@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <title>To Be</title>
+    <script src="sql-wasm.js"></script>
+    <script>
+      config = {
+        locateFile: (filename) => `./${filename}`,
+      };
+      //On load...
+      //Start playing the background music
+      window.onload = function () {
+        var audio = new Audio("src/to_be/background.wav");
+        audio.addEventListener(
+          "ended",
+          function () {
+            this.currentTime = 0;
+            this.play();
+          },
+          false
+        );
+        audio.play();
+        //set the background image
+        document.body.style.backgroundImage = "url('src/to_be/background.jpg')";
+        //Get questions and answers from the SQLite database
+        const initSqlJs = window.initSqlJs;
+        initSqlJs(config).then(function(SQL) {
+            const db = new SQL.Database();
+            const rows = db.exec("SELECT * FROM questions");
+            const questions = rows[0].values;
+            const answers = rows[1].values;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <style>
+      body {
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      p.question {
+        font-size: 40px;
+        width: 100%;
+        height: auto;
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        background-color: blueviolet;
+        color: white;
+      }
+      button.answer {
+        align-self: center;
+        width: 100%;
+        height: auto;
+        font-size: 20px;
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        color: aliceblue;
+        background-color: red;
+      }
+    </style>
+    <p class="question">Question</p>
+    <button class="answer">am</button>
+    <button class="answer">is</button>
+    <button class="answer">are</button>
+  </body>
+</html>
