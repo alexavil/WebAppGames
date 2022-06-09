@@ -124,8 +124,8 @@
         document.getElementById("score").style.display = "none";
         document.getElementById("retry").style.display = "none";
         document.getElementById("question").style.display = "block";
-        document.getElementById("answer1").style.display = "block";
-        document.getElementById("answer2").style.display = "block";
+        document.getElementById("answer1").style.display = "";
+        document.getElementById("answer2").style.display = "";
         loadQuestion(pos);
         bgMusic.currentTime = 0;
         bgMusic.play();
@@ -176,22 +176,6 @@
         color: aliceblue;
         background-color: red;
       }
-      p.title1 {
-        font-family: "Calibri", serif;
-        text-align: left;
-        margin-left: 10%;
-        margin-top: auto;
-        background-color: blueviolet;
-        color: white;
-      }
-        p.title2 {
-            font-family: "Calibri", serif;
-            text-align: right;
-            margin-right: 10%;
-            margin-top: -9%;
-            background-color: blueviolet;
-        color: white;
-        }
     </style>
     <button class="answer" onclick="exit()">Exit</button><br>
     <img class="question" id="question" src=""></img>
