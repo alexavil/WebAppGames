@@ -123,9 +123,16 @@
         bgMusic.play();
       }
 
-      function exit() {
-        window.location.href = "../index.html";
+      function exit(type) {
+        switch (type) {
+          case "menu":
+            window.location.href = "../index.html";
+            break;
+          case "exit":
+            window.close();
+        }
       }
+
     </script>
   </head>
   <body>
@@ -176,7 +183,8 @@
         background-color: red;
       }
     </style>
-    <button class="exit" onclick="exit()">Exit</button>
+    <button class="exit" onclick="exit('exit')">Exit</button>
+    <button class="exit" onclick="exit('menu')">Menu</button>
     <button class="exit" id="giveup" onclick="finish()">Give up</button>
     <p class="question" id="question">Question</p>
     <button class="answer" id="answer1" onclick="checkAnswer('am')">am</button
