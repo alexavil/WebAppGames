@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>Game Selector</title>
+    <meta
+        name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <script src="../src/sql-wasm.js"></script>
+    <script>
+        function loadGame(game) {
+            window.location.href = `${game}/${game}.html`;
+        }
+
+        window.onload = function () {
+            var background = new Audio("background.wav");
+            background.addEventListener(
+                "ended",
+                function () {
+                    this.currentTime = 0;
+                    this.play();
+                },
+                false
+            );
+            background.play();
+        };
+    </script>
+</head>
+<body>
+    <p>Please select a game...</p>
+    <button onclick="loadGame('to_be')">To Be</button>
+    <button onclick="loadGame('many_much')">Many or Much?</button>
+</body>
