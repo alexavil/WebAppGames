@@ -177,8 +177,21 @@
         color: aliceblue;
         background-color: red;
       }
+      button.exit {
+        display: inline-block;
+        margin: auto;
+        align-self: center;
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        font-family: "Calibri", serif;
+        text-align: center;
+        color: aliceblue;
+        background-color: red;
+      }
     </style>
-    <button class="answer" onclick="exit()">Exit</button><br />
+    <button class="exit" onclick="exit()">Exit</button>
+    <button class="exit" id="giveup" onclick="finish()">Give up</button>
     <img class="question" id="question" src="" />
     <img
       class="answer"

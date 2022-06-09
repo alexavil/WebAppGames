@@ -81,6 +81,7 @@
 
       function finish() {
         bgMusic.pause();
+        document.getElementById("giveup").style.display = "none";
         document.getElementById("question").style.display = "none";
         document.getElementById("answer1").style.display = "none";
         document.getElementById("answer2").style.display = "none";
@@ -112,6 +113,7 @@
         correct = 0;
         document.getElementById("score").style.display = "none";
         document.getElementById("retry").style.display = "none";
+        document.getElementById("giveup").style.display = "";
         document.getElementById("question").style.display = "block";
         document.getElementById("answer1").style.display = "block";
         document.getElementById("answer2").style.display = "block";
@@ -161,8 +163,21 @@
         color: aliceblue;
         background-color: red;
       }
+      button.exit {
+        display: inline-block;
+        margin: auto;
+        align-self: center;
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        font-family: "Calibri", serif;
+        text-align: center;
+        color: aliceblue;
+        background-color: red;
+      }
     </style>
-    <button class="answer" onclick="exit()">Exit</button>
+    <button class="exit" onclick="exit()">Exit</button>
+    <button class="exit" id="giveup" onclick="finish()">Give up</button>
     <p class="question" id="question">Question</p>
     <button class="answer" id="answer1" onclick="checkAnswer('am')">am</button
     ><br />
