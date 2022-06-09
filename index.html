@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <head>
-    <title>Game Selector</title>
-    <meta
-        name="viewport"
-        content="width=device-width, height=device-height, initial-scale=1"
-    />
-    <script src="../src/sql-wasm.js"></script>
-    <script>
-        function loadGame(game) {
-            window.location.href = `${game}/${game}.html`;
-        }
+  <title>Game Selector</title>
+  <meta
+    name="viewport"
+    content="width=device-width, height=device-height, initial-scale=1"
+  />
+  <script src="../src/sql-wasm.js"></script>
+  <script>
+    function loadGame(game) {
+      window.location.href = `${game}/${game}.html`;
+    }
 
-        window.onload = function () {
-            var background = new Audio("background.wav");
-            background.addEventListener(
-                "ended",
-                function () {
-                    this.currentTime = 0;
-                    this.play();
-                },
-                false
-            );
-            background.play();
-        };
-    </script>
+    window.onload = function () {
+      var background = new Audio("background.wav");
+      background.addEventListener(
+        "ended",
+        function () {
+          this.currentTime = 0;
+          this.play();
+        },
+        false
+      );
+      background.play();
+      document.body.style.backgroundImage = "url('background.jpg')";
+    };
+  </script>
 </head>
 <body>
-    <p>Please select a game...</p>
-    <button onclick="loadGame('to_be')">To Be</button>
-    <button onclick="loadGame('many_much')">Many or Much?</button>
+  <style>
+    p.intro {
+      font-size: 40px;
+      width: 100%;
+      height: auto;
+      font-family: "Calibri", serif;
+      text-align: center;
+      background-color: white;
+      color: blueviolet;
+    }
+    button.reply {
+      display: block;
+      margin: auto;
+      align-self: center;
+      width: auto;
+      height: auto;
+      font-size: 40px;
+      font-family: "Calibri", serif;
+      text-align: center;
+      color: aliceblue;
+      background-color: blueviolet;
+    }
+  </style>
+  <p class="intro">Please select a game...</p>
+  <button class="reply" onclick="loadGame('to_be')">To Be</button>
+  <button class="reply" onclick="loadGame('many_much')">Many or Much?</button>
 </body>

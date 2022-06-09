@@ -66,16 +66,16 @@
           correct++;
           console.log(correct);
           pos++;
-        if (pos > count) {
-          finish();
-        } else loadQuestion(pos);
+          if (pos > count) {
+            finish();
+          } else loadQuestion(pos);
         } else {
           var wrongsnd = new Audio("../src/sounds_common/wrong.wav");
           wrongsnd.play();
           pos++;
-        if (pos > count) {
-          finish();
-        } else loadQuestion(pos);
+          if (pos > count) {
+            finish();
+          } else loadQuestion(pos);
         }
       }
 
@@ -89,21 +89,22 @@
         document.getElementById("retry").style.display = "block";
         document.getElementById("score").innerHTML =
           "You got " + correct + " out of " + count + " questions correct!";
-          if (correct < count / 2) {
-            var fail = new Audio("../src/sounds_common/fail.wav");
-            document.getElementById("score").innerHTML += "<br>You need to study more!";
-            fail.play();
-          }
-          if (correct >= count / 2 && correct < count) {
-            var success = new Audio("../src/sounds_common/success.wav");
-            success.play();
-          }
-          if (correct == count) {
-            var win = new Audio("../src/sounds_common/winall.wav");
-            win.play();
-            document.getElementById("score").innerHTML =
+        if (correct < count / 2) {
+          var fail = new Audio("../src/sounds_common/fail.wav");
+          document.getElementById("score").innerHTML +=
+            "<br>You need to study more!";
+          fail.play();
+        }
+        if (correct >= count / 2 && correct < count) {
+          var success = new Audio("../src/sounds_common/success.wav");
+          success.play();
+        }
+        if (correct == count) {
+          var win = new Audio("../src/sounds_common/winall.wav");
+          win.play();
+          document.getElementById("score").innerHTML =
             "You got all " + count + " questions correct!";
-          }
+        }
       }
 
       function retry() {
@@ -163,10 +164,13 @@
     </style>
     <button class="answer" onclick="exit()">Exit</button>
     <p class="question" id="question">Question</p>
-    <button class="answer" id="answer1" onclick="checkAnswer('am')">am</button><br>
-    <button class="answer" id="answer2" onclick="checkAnswer('is')">is</button><br>
-    <button class="answer" id="answer3" onclick="checkAnswer('are')">are</button><br>
+    <button class="answer" id="answer1" onclick="checkAnswer('am')">am</button
+    ><br />
+    <button class="answer" id="answer2" onclick="checkAnswer('is')">is</button
+    ><br />
+    <button class="answer" id="answer3" onclick="checkAnswer('are')">are</button
+    ><br />
     <p class="score" id="score"></p>
-    <button class="answer" id="retry" onclick="retry()">Retry</button><br>
+    <button class="answer" id="retry" onclick="retry()">Retry</button><br />
   </body>
 </html>
