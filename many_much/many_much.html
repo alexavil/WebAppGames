@@ -13,6 +13,7 @@
       var pos = 0;
       var count = 0;
       var correct = 0;
+      var answersLocked = false;
       //On load...
       //Start playing the background music
       window.onload = async function () {
@@ -47,17 +48,11 @@
       };
 
       function lockAnswers() {
-        var answers = document.getElementsByClassName("answer");
-        for (var i = 0; i < answers.length; i++) {
-          answers[i].disabled = true;
-        }
+        answersLocked = true;
       }
 
       function unlockAnswers() {
-        var answers = document.getElementsByClassName("answer");
-        for (var i = 0; i < answers.length; i++) {
-          answers[i].disabled = false;
-        }
+        answersLocked = false;
       }
 
       //Load question function
@@ -70,6 +65,9 @@
       }
 
       function checkAnswer(answer) {
+        if (answersLocked) {
+          return;
+        }
           lockAnswers();
         var correctAnswer = db.exec(
           "select answer from answers where id = " + pos
@@ -150,8 +148,8 @@
         align-content: center;
         align-self: center;
         margin: auto;
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
       }
       p.score {
         font-size: 40px;
